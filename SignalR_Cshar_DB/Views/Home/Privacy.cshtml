@@ -1,0 +1,28 @@
+﻿@model MProducts
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<div class="container">
+    <h2>Agregamos los Productos</h2>
+    <br />
+    <div class="row">&nbsp;</div>
+    <form asp-action="GuardarPordocut" method="post" asp-controller="Home">
+        <div class="row">
+            <div class="col-4">
+                <label class="form-label">Nombre</label>
+                <input type="text" asp-for="NameProduct" class="form-control"/>
+            </div>
+            <div class="col-4">
+                <label class="form-label">Costo $</label>
+                <input type="number" asp-for="PriceProduct" class="form-control"/>
+            </div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-6">
+                <button type="submit" class="btn btn-success">Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <h1>Lista de procutos</h1>
+    <br />
+    <div class="row">
+        <div class="col-6">
+            <table class="table">
+                <thead class="">
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">$</th>
+                        <th scope="col">Fecha </th>
+                    </tr>
+                </thead>
+                <tbody id="tbBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+
+    <script>
+        var connection = new signalR.HubConnectionBuilder().withUrl("/productHub").build();
+
+        //consultamos la conexion si se realizo o no.
+        connection.start().then(()=>console.log("Conexion exitosa..."))
+        .catch(function(err){
+            return console.error(err.toString());
+        });
+
+        //Obtenemos los datos de la base de datos o de los datos, recien almacenado.
+
+        connection.on("ReceiveProduct", (res) => {
+            console.log(res);
+            console.log(res.result);
+
+            var resX = res.result;
+
+            //lo nuevo en la tabla.
+            //var tr = document.createElement("tr");
+
+            resX.map(element => {
+                document.getElementById("tbBody").innerHTML = "";
+                //console.log(element.nameProduct, "//", element.priceProduct, "//", element.fchMovt);
+
+                var tr = document.createElement("tr");
+
+                var filaCelda = `<tr><td>${element.nameProduct}</td><td>${element.priceProduct}</td><td>${element.fchMovt}</td>
+                                </tr>`;
+
+                tr.innerHTML = filaCelda;
+
+                document.getElementById("tbBody").append(tr);
+            });
+        });
+
+        //connection.on("ReceiveProduct", (res) => {
+        //    console.log(res);
+
+        //    ////lo nuevo en la tabla.
+        //    //var tr = document.createElement("tr");
+
+        //    //res.forEach((element)=>{
+        //    //    document.getElementById("tbBody").innerHTML = "";
+        //    //    //console.log("ID=>", element.idProducto);
+        //    //    //console.log(element.nameProduct, "//", element.priceProduct, "//", element.fchMovt);
+
+        //    //    //Agregamos la fila a la celda.
+        //    //    var filaCelda = `<tr><td>${element.nameProduct}</td><td>${element.priceProduct}</td><td>${element.fchMovt}</td>
+        //    //                     </tr>`;
+        //    //    tr.innerHTML = filaCelda;
+        //    //});
+
+        //    //document.getElementById("tbBody").appendChild(tr);
+        //});
+
+    </script>
+
+}
