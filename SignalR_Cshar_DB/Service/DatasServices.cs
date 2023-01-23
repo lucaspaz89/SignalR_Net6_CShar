@@ -7,10 +7,10 @@ namespace SignalR_Cshar_DB.Service
 {
     public class DatasServices:IDatasServices
     {
-        //private LpProductDB _lp;
-        //public DatasServices(LpProductDB lpProductDB)
+        
+        //public DatasServices()
         //{
-        //    _lp= lpProductDB;
+        //    
         //}
 
         public Task<List<MProducts>> GetDatos()

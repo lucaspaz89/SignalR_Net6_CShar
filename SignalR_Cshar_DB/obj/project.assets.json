@@ -3144,23 +3144,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lucas Paz\\.nuget\\packages\\": {},
+    "C:\\Users\\lenovo\\.nuget\\packages\\": {},
     "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lucas Paz\\source\\repos\\SignalR_Cshar_DB\\SignalR_Cshar_DB\\SignalR_Cshar_DB.csproj",
+      "projectUniqueName": "C:\\Users\\lenovo\\Documents\\GitHub\\SignalR_Net6_CShar\\SignalR_Cshar_DB\\SignalR_Cshar_DB.csproj",
       "projectName": "SignalR_Cshar_DB",
-      "projectPath": "C:\\Users\\Lucas Paz\\source\\repos\\SignalR_Cshar_DB\\SignalR_Cshar_DB\\SignalR_Cshar_DB.csproj",
-      "packagesPath": "C:\\Users\\Lucas Paz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lucas Paz\\source\\repos\\SignalR_Cshar_DB\\SignalR_Cshar_DB\\obj\\",
+      "projectPath": "C:\\Users\\lenovo\\Documents\\GitHub\\SignalR_Net6_CShar\\SignalR_Cshar_DB\\SignalR_Cshar_DB.csproj",
+      "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lenovo\\Documents\\GitHub\\SignalR_Net6_CShar\\SignalR_Cshar_DB\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Lucas Paz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

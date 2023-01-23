@@ -10,11 +10,6 @@ public class ProductsHub:Hub
         await Clients.All.SendAsync("ReceiveProduct", state);
     }
 
-    ////public async void pusNotification(string state)
-    ////{
-    ////    await Clients.All.SendAsync("GetNatification", state);
-    ////}
-
     public async Task postSendAsync(List<MProducts> state)
     {
         await Clients.All.SendAsync("ReceiveProduct", state);
