@@ -34,21 +34,20 @@
             return console.error(err.toString());
         });
 
+        setInterval(()=>{
+
+            connection.invoke("GetTask").catch(err => console.log(err));
+
+        }, 5000);
+
         //Obtenemos los datos de la base de datos o de los datos, recien almacenado.
 
         connection.on("ReceiveProduct", (res) => {
             console.log(res);
-            console.log(res.result);
 
-            var resX = res.result;
+            document.getElementById("tbBody").innerHTML = "";
 
-            //lo nuevo en la tabla.
-            //var tr = document.createElement("tr");
-
-            resX.map(element => {
-                document.getElementById("tbBody").innerHTML = "";
-                //console.log(element.nameProduct, "//", element.priceProduct, "//", element.fchMovt);
-
+            res.map(element => {
                 var tr = document.createElement("tr");
 
                 var filaCelda = `<tr><td>${element.nameProduct}</td><td>${element.priceProduct}</td><td>${element.fchMovt}</td>
@@ -59,26 +58,6 @@
                 document.getElementById("tbBody").append(tr);
             });
         });
-
-        //connection.on("ReceiveProduct", (res) => {
-        //    console.log(res);
-
-        //    ////lo nuevo en la tabla.
-        //    //var tr = document.createElement("tr");
-
-        //    //res.forEach((element)=>{
-        //    //    document.getElementById("tbBody").innerHTML = "";
-        //    //    //console.log("ID=>", element.idProducto);
-        //    //    //console.log(element.nameProduct, "//", element.priceProduct, "//", element.fchMovt);
-
-        //    //    //Agregamos la fila a la celda.
-        //    //    var filaCelda = `<tr><td>${element.nameProduct}</td><td>${element.priceProduct}</td><td>${element.fchMovt}</td>
-        //    //                     </tr>`;
-        //    //    tr.innerHTML = filaCelda;
-        //    //});
-
-        //    //document.getElementById("tbBody").appendChild(tr);
-        //});
 
     </script>
 

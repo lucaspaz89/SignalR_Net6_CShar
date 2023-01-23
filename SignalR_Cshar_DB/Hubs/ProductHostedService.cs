@@ -3,49 +3,49 @@ using SignalR_Cshar_DB.Service.Interface;
 
 namespace SignalR_Cshar_DB.Hubs
 {
-    public class ProductHostedService : IHostedService, IDisposable
+    public class ProductHostedService //: IHostedService, IDisposable
     {
-        private readonly IHubContext<ProductsHub> _productHub;
+        //private readonly IHubContext<ProductsHub> _productHub;
 
-        private Timer _timer;
+        //private Timer _timer;
 
-        private readonly IDatasServices _dataServices;
-        //private readonly IProductService _productService;
+        //private readonly IDatasServices _dataServices;
+        ////private readonly IProductService _productService;
 
-        public ProductHostedService(IHubContext<ProductsHub> productHub, IDatasServices datasServices)
-        {
-            _productHub = productHub;
-            _dataServices = datasServices;
-        }
+        //public ProductHostedService(IHubContext<ProductsHub> productHub, IDatasServices datasServices)
+        //{
+        //    _productHub = productHub;
+        //    _dataServices = datasServices;
+        //}
 
-        public Task StartAsync(CancellationToken cancellationToken)
-        {
-            _timer = new Timer(SendInfo, null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
+        //public Task StartAsync(CancellationToken cancellationToken)
+        //{
+        //    _timer = new Timer(SendInfo, null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
 
-            return Task.CompletedTask;
-        }
+        //    return Task.CompletedTask;
+        //}
 
-        public void SendInfo(object state)
-        {
-            //var _products = new MMproductos();
-            var res = _dataServices.GetDatos(); //_products.MProducts;
+        //public void SendInfo(object state)
+        //{
+        //    //var _products = new MMproductos();
+        //    var res = _dataServices.GetDatos(); //_products.MProducts;
 
-            _productHub.Clients.All.SendAsync("ReceiveProduct", res);
-        }
+        //    _productHub.Clients.All.SendAsync("ReceiveProduct", res);
+        //}
 
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            //cambia a tiempo cero y te devuelve almenos un segundo.
-            _timer?.Change(Timeout.Infinite, 0);
+        //public Task StopAsync(CancellationToken cancellationToken)
+        //{
+        //    //cambia a tiempo cero y te devuelve almenos un segundo.
+        //    _timer?.Change(Timeout.Infinite, 0);
 
-            //retornamos el dato.
-            return Task.CompletedTask;
-        }
+        //    //retornamos el dato.
+        //    return Task.CompletedTask;
+        //}
 
-        public void Dispose()
-        {
-            _timer?.Dispose();
-        }
+        //public void Dispose()
+        //{
+        //    _timer?.Dispose();
+        //}
 
 
         //private IEnumerable<MProducts> GetData()
