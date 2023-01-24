@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SignalR_Cshar_DB",
+    "\\SignalR_Cshar_DB\\Views",
+    "\\SignalR_Cshar_DB\\Views\\Home"
   ],
-  "SelectedNode": "\\SignalR_Cshar_DB.sln",
+  "SelectedNode": "\\SignalR_Cshar_DB\\Views\\Home\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

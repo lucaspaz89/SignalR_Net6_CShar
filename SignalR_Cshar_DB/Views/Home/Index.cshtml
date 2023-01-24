@@ -47,7 +47,7 @@
 
             document.getElementById("tbBody").innerHTML = "";
 
-            res.map(element => {
+            res.forEach(element => {
                 var tr = document.createElement("tr");
 
                 var filaCelda = `<tr><td>${element.nameProduct}</td><td>${element.priceProduct}</td><td>${element.fchMovt}</td>
