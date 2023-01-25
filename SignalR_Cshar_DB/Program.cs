@@ -23,7 +23,7 @@ builder.Services.AddSignalR();
 
 //> se ejecute en segundo plano.
 //builder.Services.AddHostedService<ProductHostedService>().AddSingleton<IDatasServices, DatasServices>();
-//builder.Services.AddHostedService<ProductHostedService>().AddSingleton<IProductService, ProductService>();
+//builder.Services.AddHostedService<WorkerService>().AddSingleton<IProductService, ProductService>();
 
 //> controllers
 builder.Services.AddControllers();

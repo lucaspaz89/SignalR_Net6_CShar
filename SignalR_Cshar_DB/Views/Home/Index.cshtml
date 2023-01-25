@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<SignalR_Cshar_DB.Models.MProducts>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -9,13 +10,26 @@
         <div class="col-6">
             <table class="table">
                 <thead class="">
-                    <tr>
+                    @*<tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">$</th>
                         <th scope="col">Fecha </th>
+                    </tr>*@
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.NameProduct)</th>
+                        <th>@Html.DisplayNameFor(model => model.PriceProduct)</th>
+                        <th>@Html.DisplayNameFor(model => model.FchMovt)</th>
                     </tr>
                 </thead>
                 <tbody id="tbBody">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.NameProduct)</td>
+                            <td>@Html.DisplayFor(modelItem => item.PriceProduct)</td>
+                            <td>@Html.DisplayFor(modelItem => item.FchMovt)</td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
@@ -26,38 +40,38 @@
     <script src="~/js/signalr/dist/browser/signalr.js"></script>
 
     <script>
-        var connection = new signalR.HubConnectionBuilder().withUrl("/productHub").build();
+        //var connection = new signalR.HubConnectionBuilder().withUrl("/productHub").build();
 
-        //consultamos la conexion si se realizo o no.
-        connection.start().then(()=>console.log("Conexion exitosa..."))
-        .catch(function(err){
-            return console.error(err.toString());
-        });
+        ////consultamos la conexion si se realizo o no.
+        //connection.start().then(()=>console.log("Conexion exitosa..."))
+        //.catch(function(err){
+        //    return console.error(err.toString());
+        //});
 
-        setInterval(()=>{
+        //setInterval(()=>{
 
-            connection.invoke("GetTask").catch(err => console.log(err));
+        //    connection.invoke("GetTask").catch(err => console.log(err));
 
-        }, 3000);
+        //}, 5000);
 
-        //Obtenemos los datos de la base de datos o de los datos, recien almacenado.
+        ////Obtenemos los datos de la base de datos o de los datos, recien almacenado.
 
-        connection.on("ReceiveProduct", (res) => {
-            console.log(res);
+        //connection.on("GetNatification", (res) => {
+        //    console.log(res);
 
-            document.getElementById("tbBody").innerHTML = "";
+        //    document.getElementById("tbBody").innerHTML = "";
 
-            res.forEach(element => {
-                var tr = document.createElement("tr");
+        //    res.forEach(element => {
+        //        var tr = document.createElement("tr");
 
-                var filaCelda = `<tr><td>${element.nameProduct}</td><td>${element.priceProduct}</td><td>${element.fchMovt}</td>
-                                </tr>`;
+        //        var filaCelda = `<tr><td>${element.nameProduct}</td><td>${element.priceProduct}</td><td>${element.fchMovt}</td>
+        //                        </tr>`;
 
-                tr.innerHTML = filaCelda;
+        //        tr.innerHTML = filaCelda;
 
-                document.getElementById("tbBody").append(tr);
-            });
-        });
+        //        document.getElementById("tbBody").append(tr);
+        //    });
+        //});
 
     </script>
 

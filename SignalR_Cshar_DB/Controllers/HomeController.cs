@@ -15,18 +15,22 @@ namespace SignalR_Cshar_DB.Controllers
             _sv = productService;
         }
 
-        //public async Task<IActionResult> Index()
-        //{
-        //    var res = await _sv.GetAllProductAsync();
+        public async Task<IActionResult> Index()
+        {
+            await Task.Delay(1000);
 
+            var res = await _sv.GetAllProductAsync();
+
+            ViewBag.product = res;
+
+            return View(res);
+        }
+
+        //public IActionResult Index()
+        //{
+        //    //var res = _sv.GetAllProductAsync();
         //    return View();
         //}
-
-        public IActionResult Index()
-        {
-            //var res = _sv.GetAllProductAsync();
-            return View();
-        }
 
         public IActionResult Privacy()
         {
@@ -40,7 +44,7 @@ namespace SignalR_Cshar_DB.Controllers
         //    {
         //        var res = await _sv.GetAllProductAsync();
 
-        //        return View(); //JsonSerializer.Serialize(res);
+        //        return View(res); //JsonSerializer.Serialize(res);
         //    }
         //    catch (Exception ex)
         //    {

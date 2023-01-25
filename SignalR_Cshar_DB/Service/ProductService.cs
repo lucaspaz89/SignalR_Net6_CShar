@@ -12,38 +12,19 @@ namespace SignalR_Cshar_DB.Service
     public class ProductService:IProductService
     {
 		private readonly LpProductDB _lp;
-        private readonly IHubContext<ProductsHub> _productHub;
 
-		//private HubConnection _hubConnection;
-
-		//private string _server = "https://localhost:7296/productHub";
-
-        //private readonly List<MProducts> _products = new List<MProducts>();
-
-        public ProductService(LpProductDB lpProductDB, IHubContext<ProductsHub> productHub)
+		public ProductService(LpProductDB lpProductDB)
 		{
 			_lp= lpProductDB;
-			_productHub = productHub;
-
-            //_hubConnection = new HubConnectionBuilder().WithUrl(_server).Build();
-
-			//Connect();
-			//GetMostar();
         }
 
         public async Task<List<MProducts>> GetAllProductAsync()
         {
 			try
 			{	
+				await Task.Delay(1000);
+
 				var _res = await _lp.Products.FromSqlRaw($"exec SP_Get_AllProduct").ToListAsync();
-
-				//_products.AddRange(_res);
-
-                //GetMostar();
-
-                //await GetMostar(_res);
-
-                //await _productHub.Clients.All.SendAsync("ReceiveProduct", _res);
 
                 return _res;
 			}
@@ -58,8 +39,6 @@ namespace SignalR_Cshar_DB.Service
 			try
 			{
 				await _lp.Database.ExecuteSqlAsync($"exec SP_Post_Product {product.NameProduct}, {product.PriceProduct}");
-
-                //await _productHub.Clients.All.SendAsync("ReceiveProduct", product);
 
                 return true;
 			}
@@ -83,39 +62,5 @@ namespace SignalR_Cshar_DB.Service
 			}
 		}
 
-
-		//private async void Connect()
-		//{
-		//	//connect to server
-		//	//_hubConnection = new HubConnectionBuilder().WithUrl(_server).Build();
-
-		//	await _hubConnection.StartAsync();
-
-  //          _hubConnection.On("GetNatification", (string name) => {
-		//		var res = name;
-
-		//	});
-
-  //          await _hubConnection.InvokeAsync("pusNotification", "Naranaja");
-
-  //      }
-
-		//public async Task GetMostar(List<MProducts> product)
-		//{
-		//	//List<MProducts> product = await GetAllProductAsync();
-			
-  //          await _hubConnection.StartAsync();
-            
-		//	//await _hubConnection.InvokeAsync("pusNotification", product);
-
-  //          await _hubConnection.InvokeAsync("postSendAsync", product);
-  //      }
-
-  //      public async void GetMostar()
-  //      {
-  //          await _hubConnection.StartAsync();
-
-  //          await _hubConnection.InvokeAsync("postSendAsync", _products);
-  //      }
-    }
+	}
 }
