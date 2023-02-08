@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("28ef2224-b2b1-4da9-ba59-0e32ef4d66bc")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("SignalR_Cshar_DB")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

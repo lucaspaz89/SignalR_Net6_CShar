@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  signalr_cshar_db:
+    image: ${DOCKER_REGISTRY-}signalrcshardb
+    build:
+      context: .
+      dockerfile: SignalR_Cshar_DB/Dockerfile

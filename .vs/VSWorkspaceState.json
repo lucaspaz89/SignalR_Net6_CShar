@@ -2,11 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\SignalR_Cshar_DB",
+    "\\SignalR_Cshar_DB\\Controllers",
     "\\SignalR_Cshar_DB\\Hubs",
     "\\SignalR_Cshar_DB\\Service",
     "\\SignalR_Cshar_DB\\Views",
     "\\SignalR_Cshar_DB\\Views\\Home"
   ],
-  "SelectedNode": "\\SignalR_Cshar_DB\\Views\\Home\\Index.cshtml",
+  "SelectedNode": "\\SignalR_Cshar_DB\\Controllers\\HomeController.cs",
   "PreviewInSolutionExplorer": false
 }

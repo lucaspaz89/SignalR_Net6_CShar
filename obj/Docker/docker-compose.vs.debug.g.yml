@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+  signalr_cshar_db:
+    image: signalrcshardb:dev
+    container_name: SignalR_Cshar_DB
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "SignalR_Cshar_DB"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
+    volumes:
+      - C:\Users\lenovo\Documents\GitHub\SignalR_Net6_CShar\SignalR_Cshar_DB:/app
+      - C:\Users\lenovo\Documents\GitHub\SignalR_Net6_CShar:/src
+      - C:\Users\lenovo\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\lenovo\.nuget\packages\:/root/.nuget/packages:ro
+      - C:\Program Files\DevExpress 22.2\Components\Offline Packages:/root/.nuget/fallbackpackages:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  \"/app/bin/Debug/net6.0/SignalR_Cshar_DB.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
